@@ -5,15 +5,16 @@ import sys
 # case=str(sys.argv[1])
 nw=int(sys.argv[1])
 
-# dirs=["p36pbe","p70pbe"]
-# dirs=["p36rf","p70rf"]
-dirs=["p36hf","p70hf"]
-# dirs=["p36acfdt","p70acfdt"]
+dirs=["p34pbe","p70pbe"]
+# dirs=["p34rf","p70rf"]
+# dirs=["p34hf","p70hf"]
+# dirs=["p34acfdt","p70acfdt"]
 
 data={}
 for dir in dirs:
-  os.system("cd %s; grep \"free  energy   TOTEN\" OUTCAR | awk '{print $5}' >OUTCAR.E.o"%(dir))
+  os.system("cd %s; grep \"energy  without entropy\" OUTCAR | awk '{print $7}' >OUTCAR.E.o"%(dir))
   # os.system("cd %s; grep \"converged value\" OUTCAR | awk '{print $3}' >OUTCAR.E.o"%(dir))
+  # os.system("cd %s; grep \"HF-correction\" OUTCAR | awk '{print $4}' >OUTCAR.E.o"%(dir))
   f = open("%s/OUTCAR.E.o"%(dir),'r')
   data[dir]=float(f.read())/27.212
   print(dir,data[dir])
