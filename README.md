@@ -1,4 +1,4 @@
 **python code to automate input generation, job submission, data collection/integration, and data mining/analysis/visualization**  
-sub_vasp: submit job  
-sub_vaspeme: submit job into large-memory queue  
-vaspgather.py: Gather energy values from VASP output files  
+gather_rpa.py: gather rpa data  
+qmcgather.py: gather qmc data  
+qmcconfigedit.py, qmcconfigread.py: qmc shift electron position to generate initial guess
